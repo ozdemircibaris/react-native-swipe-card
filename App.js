@@ -28,7 +28,18 @@ export default class App extends Component {
           data={data}
           style={{ maxHeight: PhoneHeight * 0.3 }}
           horizontal
+          // bounces={false}
+          snapToAlignment={"center"}
+          decelerationRate={0}
+          snapToInterval={PhoneWidth - 60} // default -60
+          contentInset={{
+            top: 0,
+            left: 30, // default 30
+            bottom: 0,
+            right: 30, // default 30
+          }}
           showsHorizontalScrollIndicator={false}
+          pagingEnabled
           renderItem={this.cardRenderItem} />
       </View>
     )
@@ -41,7 +52,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   cardWrapper: {
-    width: PhoneWidth,
+    width: PhoneWidth - 80, // default -80
+    margin: 10,
     height: PhoneHeight * 0.3,
     justifyContent: 'center',
     alignItems: 'center'
